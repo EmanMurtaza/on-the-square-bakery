@@ -1,0 +1,331 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>On the Square Bakery &amp; Deli — Eden, Texas</title>
+<meta name="description" content="Homemade pies, quiche, fresh bread and lunch on the square in Eden, Texas. Open Wednesday to Friday, 8 to 2.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --cream:#f6efe3; --paper:#fbf7ef; --ink:#2a1d17; --muted:#6f5f54;
+  --crust:#b5702f; --berry:#7a1f2b; --line:#e0d3bf;
+  --serif:'Fraunces',Georgia,serif; --sans:'DM Sans',system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+body{background:var(--cream);color:var(--ink);font:17px/1.65 var(--sans);-webkit-font-smoothing:antialiased}
+a{color:inherit}
+.wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+h1,h2,h3{font-family:var(--serif);font-weight:400;line-height:1.08;letter-spacing:-.01em}
+.eyebrow{font-size:.75rem;letter-spacing:.18em;text-transform:uppercase;font-weight:600;color:var(--berry)}
+
+/* nav */
+header{position:sticky;top:0;z-index:10;background:rgba(246,239,227,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+nav{display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{font-family:var(--serif);font-size:1.15rem;text-decoration:none;font-weight:600}
+.logo span{font-style:italic;font-weight:400;color:var(--berry)}
+nav ul{display:flex;gap:28px;list-style:none;padding:0}
+nav ul a{text-decoration:none;font-size:.92rem;color:var(--muted)}
+nav ul a:hover{color:var(--ink)}
+.btn{display:inline-block;background:var(--berry);color:#fff;text-decoration:none;padding:13px 24px;border-radius:999px;font-weight:600;font-size:.95rem;transition:transform .2s,background .2s}
+.btn:hover{background:#5f1520;transform:translateY(-1px)}
+.btn.ghost{background:transparent;color:var(--ink);border:1.5px solid var(--ink)}
+.btn.ghost:hover{background:var(--ink);color:var(--cream)}
+nav .btn{padding:9px 18px;font-size:.85rem}
+
+/* hero */
+.hero{padding:72px 20px 56px;display:grid;grid-template-columns:1.15fr .85fr;gap:56px;align-items:center}
+.hero h1{font-size:clamp(2.8rem,7vw,5.4rem);margin:18px 0 22px}
+.hero h1 em{color:var(--berry)}
+.hero p.lead{font-size:1.15rem;color:var(--muted);max-width:30em}
+.cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:32px}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:6px;padding:32px;position:relative}
+.card::before{content:"";position:absolute;inset:8px;border:1px dashed var(--line);border-radius:3px;pointer-events:none}
+.card h3{font-size:1.5rem;margin-bottom:4px}
+.status{display:inline-flex;align-items:center;gap:8px;font-size:.85rem;font-weight:600;margin-bottom:18px}
+.dot{width:9px;height:9px;border-radius:50%;background:#999}
+.status.open .dot{background:#2f8f4e;box-shadow:0 0 0 4px rgba(47,143,78,.18)}
+.hours{list-style:none;padding:0;margin:18px 0 0}
+.hours li{display:flex;justify-content:space-between;padding:9px 0;border-top:1px solid var(--line);font-size:.95rem}
+.hours li span:last-child{color:var(--muted)}
+.hours li.today{font-weight:600}
+.hours li.today span:last-child{color:var(--berry)}
+
+/* vintage widgets */
+header::after{content:"";display:block;height:8px;
+  background:
+    repeating-linear-gradient(90deg,rgba(122,31,43,.55) 0 8px,transparent 8px 16px),
+    repeating-linear-gradient(0deg,rgba(122,31,43,.55) 0 4px,transparent 4px 8px),
+    var(--paper)}
+.badges{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:8px}
+.ticket{display:inline-flex;align-items:center;gap:10px;background:var(--paper);color:var(--berry);
+  font:600 .78rem var(--sans);letter-spacing:.14em;text-transform:uppercase;padding:10px 18px 10px 14px;
+  border:1.5px dashed var(--berry);border-radius:4px;transform:rotate(-2deg);position:relative}
+.ticket::before,.ticket::after{content:"";position:absolute;top:50%;width:10px;height:10px;border-radius:50%;background:var(--cream);border:1.5px dashed var(--berry);transform:translateY(-50%)}
+.ticket::before{left:-6px;border-left-color:transparent}
+.ticket::after{right:-6px;border-right-color:transparent}
+.seal{width:104px;height:104px;flex:none;filter:drop-shadow(0 2px 0 rgba(42,29,23,.12))}
+.ringtext{transform-origin:80px 80px;animation:spin 28s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+@media (prefers-reduced-motion:reduce){.ringtext{animation:none}}
+@media (max-width:860px){.seal{width:84px;height:84px}}
+
+/* marquee strip */
+.strip{background:var(--ink);color:var(--cream);overflow:hidden;white-space:nowrap;padding:16px 0}
+.strip div{display:inline-block;animation:slide 40s linear infinite;font-family:var(--serif);font-style:italic;font-size:1.25rem}
+.strip i{font-style:normal;color:var(--crust);margin:0 22px}
+@keyframes slide{to{transform:translateX(-50%)}}
+@media (prefers-reduced-motion:reduce){.strip div{animation:none}}
+
+section{padding:96px 0}
+.head{max-width:34em;margin-bottom:48px}
+.head h2{font-size:clamp(2rem,4.5vw,3.2rem);margin:12px 0 14px}
+.head p{color:var(--muted)}
+
+/* menu */
+.menu{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-top:1px solid var(--ink)}
+.menu article{padding:30px 28px 34px 0;border-bottom:1px solid var(--line)}
+.menu article:not(:nth-child(3n+1)){padding-left:28px;border-left:1px solid var(--line)}
+.menu .num{font-family:var(--serif);font-style:italic;color:var(--crust);font-size:1rem}
+.menu h3{font-size:1.5rem;margin:6px 0 10px}
+.menu p{color:var(--muted);font-size:.97rem}
+.note{margin-top:28px;font-size:.92rem;color:var(--muted)}
+
+/* about */
+.about{background:var(--paper);border-block:1px solid var(--line)}
+.about .grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start}
+.about h2{font-size:clamp(2rem,4.5vw,3.2rem);margin-top:12px}
+.about p+p{margin-top:16px}
+.facts{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line);margin-top:32px}
+.facts div{background:var(--paper);padding:20px}
+.facts b{display:block;font-family:var(--serif);font-weight:400;font-size:2rem;color:var(--berry);line-height:1}
+.facts span{font-size:.85rem;color:var(--muted)}
+
+/* gallery */
+.gallery{display:grid;grid-template-columns:repeat(6,1fr);grid-auto-rows:150px;gap:12px}
+.gallery figure{position:relative;overflow:hidden;border-radius:6px;background:var(--line)}
+.gallery img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s}
+.gallery figure:hover img{transform:scale(1.04)}
+.gallery figcaption{position:absolute;left:12px;bottom:12px;background:var(--paper);color:var(--ink);font-size:.78rem;font-weight:600;padding:5px 11px;border-radius:999px}
+.g1{grid-column:span 3;grid-row:span 2}
+.g2{grid-column:span 3;grid-row:span 2}
+.g3{grid-column:span 2;grid-row:span 2}
+.g4{grid-column:span 2;grid-row:span 2}
+.g5{grid-column:span 2;grid-row:span 2}
+.g6{grid-column:span 6;grid-row:span 2}
+@media (max-width:860px){
+  .gallery{grid-template-columns:repeat(2,1fr);grid-auto-rows:150px;gap:8px}
+  .g1,.g2,.g6{grid-column:span 2}
+  .g3,.g4,.g5{grid-column:span 1}
+}
+
+/* reviews */
+.quotes{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
+blockquote{font-family:var(--serif);font-size:1.5rem;line-height:1.35;padding:32px;background:var(--paper);border:1px solid var(--line);border-radius:6px}
+blockquote footer{font:600 .8rem var(--sans);letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-top:18px}
+
+/* visit */
+.visit{background:var(--berry);color:#fbeee9}
+.visit .eyebrow{color:#f0c9a3}
+.visit .grid{display:grid;grid-template-columns:1fr 1fr;gap:64px}
+.visit h2{font-size:clamp(2.2rem,5vw,3.8rem);margin:12px 0 20px}
+.visit dl{display:grid;gap:22px}
+.visit dt{font-size:.75rem;letter-spacing:.16em;text-transform:uppercase;color:#f0c9a3;font-weight:600;margin-bottom:4px}
+.visit dd{font-family:var(--serif);font-size:1.35rem;line-height:1.35}
+.visit dd a{text-underline-offset:4px}
+.visit .btn{background:var(--cream);color:var(--berry);margin-top:28px}
+.visit .btn:hover{background:#fff}
+
+footer.site{padding:28px 0;font-size:.85rem;color:var(--muted);text-align:center}
+
+/* reveal */
+.r{opacity:0;transform:translateY(16px);transition:opacity .7s,transform .7s}
+.r.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.r{opacity:1;transform:none}}
+
+@media (max-width:860px){
+  nav ul{display:none}
+  .hero{grid-template-columns:1fr;padding:36px 20px 40px;gap:36px}
+  .hero h1{font-size:clamp(2.5rem,12vw,3.4rem)}
+  .cta .btn{flex:1 1 100%;text-align:center}
+  .card{padding:24px}
+  .head{margin-bottom:32px}
+  .visit dd{font-size:1.2rem}
+  html,body{overflow-x:hidden}
+  section{padding:64px 0}
+  .menu{grid-template-columns:1fr}
+  .menu article,.menu article:not(:nth-child(3n+1)){padding:24px 0;border-left:0}
+  .about .grid,.visit .grid,.quotes{grid-template-columns:1fr;gap:36px}
+  .quotes{gap:16px}
+  blockquote{font-size:1.25rem;padding:24px}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap"><nav>
+    <a class="logo" href="#top">On the Square <span>Bakery &amp; Deli</span></a>
+    <ul>
+      <li><a href="#menu">What we make</a></li>
+      <li><a href="#story">The shop</a></li>
+      <li><a href="#reviews">Kind words</a></li>
+      <li><a href="#visit">Visit</a></li>
+    </ul>
+    <a class="btn" href="tel:+13257638073">Call</a>
+  </nav></div>
+</header>
+
+<main id="top">
+<div class="wrap hero">
+  <div>
+    <div class="badges">
+      <div class="ticket" aria-label="Open Wednesday to Friday">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M12 21V8M12 8c0-3 2-5 5-5 0 3-2 5-5 5zM12 12c0-3-2-5-5-5 0 3 2 5 5 5zM12 16c0-3 2-5 5-5 0 3-2 5-5 5zM12 20c0-3-2-5-5-5 0 3 2 5 5 5z"/></svg>
+        <span>Fresh · Wed – Fri</span>
+      </div>
+      <svg class="seal" viewBox="0 0 160 160" role="img" aria-label="Homemade, from scratch, Eden Texas">
+        <defs><path id="ring" d="M80 80m-60 0a60 60 0 1 1 120 0a60 60 0 1 1-120 0"/></defs>
+        <circle cx="80" cy="80" r="76" fill="#7a1f2b"/>
+        <circle cx="80" cy="80" r="70" fill="none" stroke="#f0c9a3" stroke-width="1" stroke-dasharray="2 4"/>
+        <circle cx="80" cy="80" r="44" fill="#f6efe3"/>
+        <g class="ringtext"><text fill="#fbeee9" font-family="DM Sans,sans-serif" font-size="12.5" font-weight="600" letter-spacing="3.2"><textPath href="#ring">HOMEMADE ✦ FROM SCRATCH ✦ EDEN TEXAS ✦</textPath></text></g>
+        <g fill="none" stroke="#7a1f2b" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="52" y="73" width="56" height="14" rx="7" transform="rotate(-18 80 80)"/>
+          <path d="M44 96l-8 6M116 64l8-6" />
+          <path d="M66 100c8 6 20 6 28 0" stroke-width="2"/>
+        </g>
+      </svg>
+    </div>
+    <p class="eyebrow">Downtown Eden, Texas</p>
+    <h1>Baked here, <em>eaten</em> on the square.</h1>
+    <p class="lead">Pies, quiche, fresh bread and a proper lunch, made from scratch in a small shop across from the park. Come hungry; the pie is better outdoors.</p>
+    <div class="cta">
+      <a class="btn" href="https://www.google.com/maps/search/?api=1&query=On+the+Square+Bakery+%26+Deli+208+Jackson+Blvd+Eden+TX" target="_blank" rel="noopener">Get directions</a>
+      <a class="btn ghost" href="#menu">See what's baking</a>
+    </div>
+  </div>
+  <aside class="card r">
+    <div class="status" id="status"><span class="dot"></span><span id="statusText">Wednesday – Friday</span></div>
+    <h3>Open three days a week</h3>
+    <p style="color:var(--muted);font-size:.95rem">Lunch served 11 to 1:30, or until it's gone.</p>
+    <ul class="hours" id="hours">
+      <li data-d="1"><span>Monday</span><span>Closed</span></li>
+      <li data-d="2"><span>Tuesday</span><span>Closed</span></li>
+      <li data-d="3"><span>Wednesday</span><span>8 am – 2 pm</span></li>
+      <li data-d="4"><span>Thursday</span><span>8 am – 2 pm</span></li>
+      <li data-d="5"><span>Friday</span><span>8 am – 2 pm</span></li>
+      <li data-d="6"><span>Saturday</span><span>Closed</span></li>
+      <li data-d="0"><span>Sunday</span><span>Closed</span></li>
+    </ul>
+  </aside>
+</div>
+
+<div class="strip" aria-hidden="true"><div>
+  Homemade pies<i>✦</i>Quiche<i>✦</i>Fresh-baked bread<i>✦</i>Daily soups<i>✦</i>Pastries<i>✦</i>Homemade candy<i>✦</i>Frozen casseroles<i>✦</i>
+  Homemade pies<i>✦</i>Quiche<i>✦</i>Fresh-baked bread<i>✦</i>Daily soups<i>✦</i>Pastries<i>✦</i>Homemade candy<i>✦</i>Frozen casseroles<i>✦</i>
+</div></div>
+
+<section id="menu"><div class="wrap">
+  <div class="head r">
+    <p class="eyebrow">What we make</p>
+    <h2>Small shop. Real ingredients. Nothing out of a box.</h2>
+    <p>The case changes with the day and the oven. Here's what you'll usually find.</p>
+  </div>
+  <div class="menu r">
+    <article><span class="num">01</span><h3>Pies &amp; pastries</h3><p>Slices to eat at the table or in the park across the street, and whole pies to take home.</p></article>
+    <article><span class="num">02</span><h3>Quiche</h3><p>One of the shop's best-known dishes. Rich, golden and baked fresh.</p></article>
+    <article><span class="num">03</span><h3>Sandwiches</h3><p>Built on bread baked in house. The chicken salad has its fans.</p></article>
+    <article><span class="num">04</span><h3>Soup &amp; daily plates</h3><p>A soup of the day and rotating lunch specials, King Ranch casserole among them.</p></article>
+    <article><span class="num">05</span><h3>Homemade candy</h3><p>Sweet little things to tuck in a bag for the road.</p></article>
+    <article><span class="num">06</span><h3>Frozen casseroles</h3><p>Dinner for later. Pick one up on your way out and bake it at home.</p></article>
+  </div>
+  <p class="note">Menu varies by day. Call ahead if you're after a whole pie or a particular casserole.</p>
+</div></section>
+
+<section class="gallery-sec" id="gallery"><div class="wrap">
+  <div class="head r">
+    <p class="eyebrow">Inside the shop</p>
+    <h2>Pie on the counter, jam on the shelf.</h2>
+    <p>Fresh bread, pies and sweet things to take home. There's also The Rehatched Nook, the shop's new vintage and repurposed corner, worth a wander after lunch.</p>
+  </div>
+  <div class="gallery r">
+    <figure class="g1"><img src="images/pie-1.jpg" data-fb="https://images.unsplash.com/photo-1587248720327-8eb72564be1e?auto=format&fit=crop&w=1000&q=75" alt="A homemade pie on a wooden table" loading="lazy"><figcaption>From the oven</figcaption></figure>
+    <figure class="g2"><img src="images/nook.jpg" data-fb="https://images.unsplash.com/photo-1738861666945-281c33ffff87?auto=format&fit=crop&w=1000&q=75" alt="Shelves of fresh bread in a bakery" loading="lazy"><figcaption>Fresh bread</figcaption></figure>
+    <figure class="g3"><img src="images/special.jpg" data-fb="https://images.unsplash.com/photo-1726981897420-0778c14deedf?auto=format&fit=crop&w=700&q=75" alt="A display case of pastries" loading="lazy"><figcaption>The pastry case</figcaption></figure>
+    <figure class="g4"><img src="images/jams.jpg" data-fb="https://images.unsplash.com/photo-1695136219547-1fd5c21a1e71?auto=format&fit=crop&w=700&q=75" alt="A shelf of jars of jam" loading="lazy"><figcaption>Jars to take home</figcaption></figure>
+    <figure class="g5"><img src="images/pie-2.jpg" data-fb="https://images.unsplash.com/photo-1621743478914-cc8a86d7e7b5?auto=format&fit=crop&w=700&q=75" alt="A pie beside a red apple" loading="lazy"><figcaption>Slice or whole</figcaption></figure>
+    <figure class="g6"><img src="images/storefront.jpg" data-fb="https://images.unsplash.com/photo-1604908552986-eb22824b2150?auto=format&fit=crop&w=1600&q=75" alt="Bread on a glass bakery counter" loading="lazy"><figcaption>Baked daily</figcaption></figure>
+  </div>
+</div></section>
+
+<section class="about" id="story"><div class="wrap grid">
+  <div class="r">
+    <p class="eyebrow">The shop</p>
+    <h2>A little place with a lot of table manners.</h2>
+  </div>
+  <div class="r">
+    <p>On the Square is a tiny, tidy bakery and deli in the middle of Eden. There are five tables, you order at the counter yourself, and someone friendly always notices when you walk in.</p>
+    <p>Everything leans homemade, from the bread to the pies, and people drive in from all over the Concho Valley to eat it. Linger a while. The park is right across the street.</p>
+    <div class="facts">
+      <div><b>5.0</b><span>Rating on Facebook</span></div>
+      <div><b>4.9</b><span>Rating on Google</span></div>
+      <div><b>3</b><span>Days a week, Wed – Fri</span></div>
+      <div><b>5</b><span>Tables, all yours</span></div>
+    </div>
+  </div>
+</div></section>
+
+<section id="reviews"><div class="wrap">
+  <div class="head r"><p class="eyebrow">Kind words</p><h2>What folks say after the last bite.</h2></div>
+  <div class="quotes">
+    <blockquote class="r">“Delicious food, very friendly staff, clean, and in an adorable little setting.”<footer>Google review</footer></blockquote>
+    <blockquote class="r">“Very friendly little town, nice park across to eat your slice of pie.”<footer>Google review</footer></blockquote>
+  </div>
+</div></section>
+
+<section class="visit" id="visit"><div class="wrap grid">
+  <div class="r">
+    <p class="eyebrow">Come on in</p>
+    <h2>Find us on the square.</h2>
+    <p>Park, walk in, order at the counter. Pies go fast, so earlier is better.</p>
+    <a class="btn" href="https://www.google.com/maps/search/?api=1&query=On+the+Square+Bakery+%26+Deli+208+Jackson+Blvd+Eden+TX" target="_blank" rel="noopener">Open in Maps</a>
+  </div>
+  <dl class="r">
+    <div><dt>Address</dt><dd>208 Jackson Blvd<br>Eden, Texas 76837</dd></div>
+    <div><dt>Phone</dt><dd><a href="tel:+13257638073">(325) 763-8073</a></dd></div>
+    <div><dt>Hours</dt><dd>Wednesday – Friday<br>8 am – 2 pm</dd></div>
+    <div><dt>Follow along</dt><dd><a href="https://www.facebook.com/search/top?q=On%20the%20Square%20Bakery%20and%20Deli" target="_blank" rel="noopener">Facebook</a> for daily specials</dd></div>
+  </dl>
+</div></section>
+</main>
+
+<footer class="site">© <span id="yr"></span> On the Square Bakery &amp; Deli · Eden, Texas</footer>
+
+<script>
+(function(){
+  document.getElementById('yr').textContent=new Date().getFullYear();
+  // highlight today (Texas time) and show open state
+  var p=new Intl.DateTimeFormat('en-US',{timeZone:'America/Chicago',weekday:'short',hour:'numeric',hour12:false}).formatToParts(new Date());
+  var wd=p.find(x=>x.type==='weekday').value, hr=parseInt(p.find(x=>x.type==='hour').value,10)%24;
+  var map={Sun:0,Mon:1,Tue:2,Wed:3,Thu:4,Fri:5,Sat:6}, d=map[wd];
+  var li=document.querySelector('#hours li[data-d="'+d+'"]'); if(li) li.classList.add('today');
+  var open=d>=3&&d<=5&&hr>=8&&hr<14, s=document.getElementById('status');
+  document.getElementById('statusText').textContent=open?'Open now · closes at 2 pm':'Closed right now';
+  if(open) s.classList.add('open');
+  // drop any photo that hasn't been added yet; hide the section if none exist
+  var figs=document.querySelectorAll('.gallery figure'), left=figs.length;
+  figs.forEach(function(f){var im=f.querySelector('img');
+    function gone(){f.remove();if(--left===0){var s=document.getElementById('gallery');if(s)s.remove()}}
+    // use the shop's own photo from /images if present, else the stock placeholder
+    function fail(){var fb=im.getAttribute('data-fb');if(fb){im.removeAttribute('data-fb');im.addEventListener('error',gone,{once:true});im.src=fb}else gone()}
+    if(im.complete&&im.naturalWidth===0)fail();else im.addEventListener('error',fail,{once:true})});
+  var io=new IntersectionObserver(function(e){e.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target)}})},{threshold:.12});
+  document.querySelectorAll('.r').forEach(function(el){io.observe(el)});
+})();
+</script>
+</body>
+</html>
